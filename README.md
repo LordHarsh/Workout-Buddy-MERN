@@ -1,2 +1,1 @@
-#Workout Buddy
-####using MERN stack
+# Workout Buddy [using MERN stack]
