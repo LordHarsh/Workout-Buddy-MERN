@@ -64,9 +64,9 @@ The application can be deployed to a production environment using Heroku or anot
 ## Further Development
 The application can be further developed by adding additional features, such as:
 
-The ability to track the progress of users over time.
-The ability to share workouts with other users.
-The ability to create custom workouts.
+* The ability to track the progress of users over time.
+* The ability to share workouts with other users.
+* The ability to create custom workouts.
 
 ## Contributing
 Please feel free to contribute to this project. To do so, fork the repository and make your changes. Then, open a pull request and I will review your changes.
