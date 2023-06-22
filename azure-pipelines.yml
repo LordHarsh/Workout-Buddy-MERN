@@ -57,6 +57,7 @@ stages:
         environment: $(environmentName)
         pool:
           vmImage: $(vmImageName)
+          maxConcurrency: 1  # Set maxConcurrency to 1 for sequential deployment
         strategy:
           runOnce:
             deploy:
