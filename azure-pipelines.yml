@@ -1,0 +1,72 @@
+trigger:
+  - master
+
+variables:
+  azureSubscription: '17d87cb8-2d0d-4d03-839e-959d148de1c1'
+  webAppName: 'workout-buddy'
+  environmentName: 'workout-buddy'
+  vmImageName: 'ubuntu-latest'
+
+stages:
+  - stage: Build
+    displayName: Build stage
+    jobs:
+      - job: Build
+        displayName: Build
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: 'lts/*'
+            displayName: 'Install Node.js'
+
+          - script: |
+              cd frontend
+              npm install
+              npm run build --if-present
+              npm run test --if-present
+            displayName: 'Frontend: npm install, build, and test'
+
+          - script: |
+              cd ../backend
+              npm install
+              npm run build --if-present
+              npm run test --if-present
+            displayName: 'Backend: npm install, build, and test'
+
+          - task: ArchiveFiles@2
+            displayName: 'Archive files'
+            inputs:
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+              includeRootFolder: false
+              archiveType: zip
+              archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+              replaceExistingArchive: true
+
+          - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+            artifact: drop
+
+  - stage: Deploy
+    displayName: Deploy stage
+    dependsOn: Build
+    condition: succeeded()
+    jobs:
+      - deployment: Deploy
+        displayName: Deploy
+        environment: $(environmentName)
+        pool:
+          vmImage: $(vmImageName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: AzureWebApp@1
+                  displayName: 'Azure Web App Deploy: workout-buddy'
+                  inputs:
+                    azureSubscription: $(azureSubscription)
+                    appType: webAppLinux
+                    appName: $(webAppName)
+                    runtimeStack: 'NODE|lts'
+                    package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+                    startUpCommand: ''
