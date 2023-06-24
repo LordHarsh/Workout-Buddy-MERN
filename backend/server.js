@@ -7,7 +7,13 @@ const userRoutes = require('./routes/user')
 
 // express app
 const app = express()
+const cors = require("cors");
+const options = {
+  credentials: true,
+  origin: [process.env.FRONTEND_URL],
+};
 
+app.use(cors(options));
 
 // middleware
 app.use((req, res, next) => {
@@ -29,5 +35,6 @@ mongoose.connect(process.env.MONGO_URI)
 
     })
     .catch((error) => {
+        console.log(process.env.MONGO_URI)
         console.log(error)
     })

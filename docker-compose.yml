@@ -4,11 +4,25 @@ services:
     build: ./backend
     ports:
       - '${PORT:-4000}:${PORT:-4000}'
-    env_file:
-      - ./backend/.env
-  # frontend:
-  #   build: ./frontend
-  #   ports:
-  #     - '3000:3000'
-  #   environment:
-  #     - REACT_APP_BACKEND_URL='http://192.168.29.113:4003'
+    environment:
+      - PORT=${PORT}
+      - MONGO_URI=${MONGO_URI}
+      - SECRET=${SECRET}
+      - FRONTEND_URL=http://localhost:3000
+    networks:
+      - buddy-network
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - BACKEND_URL=http://localhost:${PORT:-4000}
+    ports:
+      - '3000:3000'
+    links:
+      - backend
+    networks:
+      - buddy-network
+    command:
+      
+networks:
+  buddy-network:
