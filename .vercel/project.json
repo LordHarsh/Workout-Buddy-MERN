@@ -1,0 +1,15 @@
+{
+  "projectId": "prj_X6VIH475jkr0Bku4hwfqKBwvK2PK",
+  "orgId": "TIgKX8iZhvIUjhPV0oUsfMbU",
+  "settings": {
+    "createdAt": 1687359631029,
+    "framework": "create-react-app",
+    "devCommand": null,
+    "installCommand": "cd backend && npm install && cd ../frontend && npm install && cd ..",
+    "buildCommand": "cd frontend && npm run build",
+    "outputDirectory": "frontend/build",
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "18.x"
+  }
+}
