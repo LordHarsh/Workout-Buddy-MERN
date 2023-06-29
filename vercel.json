@@ -5,7 +5,11 @@
       "memory": 512,
       "maxDuration": 10,
       "runtime": "vercel-node@0.29.0",
-      "includeFiles": "backend/**"
+      "includeFiles": "backend/server.js"
     }
-  }
+  },
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/backend/server.js" },
+    { "src": "/(.*)", "dest": "/frontend/build/$1" }
+  ]
 }
