@@ -7,7 +7,7 @@
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "backend/api/$1",
+        "dest": "backend/server.js",
         "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"]
       },
       {
