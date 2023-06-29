@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "functions": {
-    "api/*": {
-      "memory": 512,
-      "maxDuration": 10,
-      "runtime": "vercel-node@0.29.0",
-      "includeFiles": "backend/server.js"
+  "builds": [
+    {
+      "src": "*.js",
+      "use": "@vercel/node"
     }
-  },
+  ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/backend/server.js" },
-    { "src": "/(.*)", "dest": "/frontend/build/$1" }
+    {
+      "src": "/(.*)",
+      "dest": "/" 
+    }
   ]
 }
