@@ -3,7 +3,9 @@
   "functions": {
     "api/*": {
       "memory": 512,
-      "maxDuration": 10
+      "maxDuration": 10,
+      "runtime": "vercel-node@0.29.0",
+      "includeFiles": "backend/**"
     }
   }
 }
