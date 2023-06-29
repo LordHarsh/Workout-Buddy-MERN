@@ -1,0 +1,72 @@
+.
+├── backend
+│   ├── controllers
+│   │ ├── userController.js
+│   │   └── workoutController.js
+│   ├── Dockerfile
+│   ├── middleware
+│   │   └── requireAuth.js
+│   ├── models
+│   │   ├── userModel.js
+│   │   └── workoutModel.js
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── routes
+│   │   ├── user.js
+│   │   └── workouts.js
+│   └── server.js
+├── frontend
+│   ├── build
+│   │   ├── asset-manifest.json
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   ├── robots.txt
+│   │   └── static
+│   │       ├── css
+│   │       │   ├── main.5d0dd59a.css
+│   │       │   └── main.5d0dd59a.css.map
+│   │       └── js
+│   │           ├── main.218cc1d4.js
+│   │           ├── main.218cc1d4.js.LICENSE.txt
+│   │           └── main.218cc1d4.js.map
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── public
+│   │   ├── favicon.ico
+│   │   ├── index.html
+│   │   ├── logo192.png
+│   │   ├── logo512.png
+│   │   ├── manifest.json
+│   │   └── robots.txt
+│   ├── README.md
+│   └── src
+│       ├── App.js
+│       ├── components
+│       │   ├── navbar.js
+│       │   ├── WorkoutDetails.js
+│       │   └── WorkoutForm.js
+│       ├── context
+│       │   ├── authContext.js
+│       │   └── workoutContext.js
+│       ├── hooks
+│       │   ├── useAuthContext.js
+│       │   ├── useLogin.js
+│       │   ├── useLogout.js
+│       │   ├── useSignup.js
+│       │   └── useWorkoutsContext.js
+│       ├── index.css
+│       ├── index.js
+│       └── pages
+│           ├── Home.js
+│           ├── Login.js
+│           └── Signup.js
+├── LICENSE
+├── README.md
+├── tree
+└── vercel.json
+
+17 directories, 53 files
