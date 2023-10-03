@@ -16,7 +16,7 @@ The application is divided into two folders:
 The server-side code is written in Node.js and uses Express.js as a web framework. The client-side code is written in React.js.
 
 ## Database
-The application uses MongoDB as a database. The database is located in the data folder.
+The application uses MongoDB as a database. The database is deployed on MongoDB Atlas.
 
 ## Local Setup
 
